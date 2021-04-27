@@ -43,4 +43,8 @@ public class ChocolateBoiler {
 	public boolean isBoiled() {
 		return boiled;
 	}
+
+	public static void clear() {
+		uniqueInstance = null;
+	}
 }
