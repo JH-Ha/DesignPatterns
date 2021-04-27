@@ -5,6 +5,8 @@ public class Main {
 		Singleton singleton = Singleton.getInstance();
 		Singleton singleton2 = Singleton.getInstance();
 
+		// the same object
 		System.out.println(singleton == singleton2);
+
 	}
 }
