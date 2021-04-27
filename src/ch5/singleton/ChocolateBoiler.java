@@ -3,7 +3,7 @@ package ch5.singleton;
 public class ChocolateBoiler {
 	private boolean empty;
 	private boolean boiled;
-	private static ChocolateBoiler uniqueInstance;
+	private static volatile ChocolateBoiler uniqueInstance;
 
 	private ChocolateBoiler() {
 		empty = true;
@@ -12,7 +12,9 @@ public class ChocolateBoiler {
 
 	public static ChocolateBoiler getInstance() {
 		if (uniqueInstance == null) {
-			uniqueInstance = new ChocolateBoiler();
+			synchronized (ChocolateBoiler.class) {
+				uniqueInstance = new ChocolateBoiler();
+			}
 		}
 		return uniqueInstance;
 	}
